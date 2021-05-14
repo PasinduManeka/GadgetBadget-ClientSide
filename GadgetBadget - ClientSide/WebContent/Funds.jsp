@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="model.Fund" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
 <script type="text/javascript" src="Components/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="Components/main.js"></script>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
+<link rel="stylesheet" href="Views/main.css">
 </head>
 <body>
 	<div class="card">
@@ -43,8 +45,13 @@
 			</form>
 		</div><br>
 		
-		<div class="row container">
-			<div class="col-12" id="colFund"></div>
+		<div class="container">
+			<div class="col-12" id="colFund">
+				<%
+				Fund fundObj = new Fund();
+				out.print(fundObj.readFunds());
+				%>
+			</div>
 		</div>
 			
 	</div>
