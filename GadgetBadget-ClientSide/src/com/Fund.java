@@ -129,7 +129,7 @@ public class Fund {
 			}
 			
 			//sql query
-			String sql = "update product set code=? , name=?, price=?, description=? where id=? ";
+			String sql = "update funds set cartid=?, researchName=?, investAmount=?, description=? where id=? ";
 			PreparedStatement pd = con.prepareStatement(sql);
 			
 			//bind values
