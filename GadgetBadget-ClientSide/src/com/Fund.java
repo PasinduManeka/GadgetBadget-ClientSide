@@ -118,7 +118,7 @@ public class Fund {
 		
 	}
 	
-	public String updateItem(String id, String code, String name, String amount, String description) {
+	public String updateFund(String id, String code, String name, String amount, String description) {
 		String output = "";
 		
 		try {
