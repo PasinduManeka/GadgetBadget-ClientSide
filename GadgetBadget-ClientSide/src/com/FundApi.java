@@ -70,7 +70,7 @@ public class FundApi extends HttpServlet {
 		
 		System.out.println(paras.get("id").toString());
 		
-		String output = itObjDelete.deleteItem(paras.get("id").toString());
+		String output = itObjDelete.deleteFund(paras.get("id").toString());
 		response.getWriter().write(output);
 		
 		
