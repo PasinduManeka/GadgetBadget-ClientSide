@@ -105,7 +105,7 @@ public class Fund {
 			
 			
 		}catch(Exception e) {
-			output="{\"status\":\"success\", \"data\":\"Error while inserting item.\"}";
+			output="{\"status\":\"error\", \"data\":\"Error while inserting item.\"}";
 			System.err.println("This is the error:"+e.getMessage());
 		}
 		return output;
@@ -139,7 +139,7 @@ public class Fund {
 			output = "{\"status\":\"success\", \"data\":\""+newFund+"\"}";
 		
 		}catch(Exception e) {
-			output = "{\"status\":\"success\", \"data\":\"Error while updating the data.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while updating the data.\"}";
 			System.err.print("this is the error updating:"+e.getMessage());
 		}
 		return output;
@@ -170,7 +170,7 @@ public class Fund {
 			output = "{\"status\":\"success\", \"data\":\""+newFund+"\"}";
 			
 		}catch(Exception e) {
-			output = "{\"status\":\"success\", \"data\":\"Error while deleting the data.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while deleting the data.\"}";
 			System.err.print("this is the erro updating:"+e.getMessage());
 		}
 		return output;
