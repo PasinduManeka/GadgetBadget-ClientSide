@@ -140,13 +140,39 @@ public class Fund {
 		
 		}catch(Exception e) {
 			output = "{\"status\":\"success\", \"data\":\"Error while updating the data.\"}";
-			System.err.print("this is the erro updating:"+e.getMessage());
+			System.err.print("this is the error updating:"+e.getMessage());
 		}
 		return output;
 	}
 	
 	public String deleteFunds(String id) {
 		String output="";
+		try {
+			Connection con=connect();
+			//check the database connection
+			if(con==null) {
+				return "Error while connecting to the databae for deleting the data.";
+			}
+			
+			//create prepared statement
+			String sql = "delete from funds wherer id=?";
+			PreparedStatement pdstm = con.prepareStatement(sql);
+			
+			//bind values
+			pdstm.setInt(1, Integer.parseInt(id));
+			
+			//execute the statement
+			pdstm.executeUpdate();
+			con.setAutoCommit(false);
+			con.commit();
+			
+			String newFund = readFunds();
+			output = "{\"status\":\"success\", \"data\":\""+newFund+"\"}";
+			
+		}catch(Exception e) {
+			output = "{\"status\":\"success\", \"data\":\"Error while deleting the data.\"}";
+			System.err.print("this is the erro updating:"+e.getMessage());
+		}
 		return output;
 	}
 }
