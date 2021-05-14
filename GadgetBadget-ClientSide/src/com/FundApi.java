@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ItemApi
+ * Servlet implementation class FundApi
  */
-@WebServlet("/ItemApi")
+@WebServlet("/FundApi")
 public class FundApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -44,7 +44,7 @@ public class FundApi extends HttpServlet {
 		doGet(request, response);
 		Fund itemObj = new Fund();
 		
-		String output = itemObj.inserItem(request.getParameter("code"), request.getParameter("name"), request.getParameter("price"), request.getParameter("description"));
+		String output = itemObj.inserFund(request.getParameter("code"), request.getParameter("name"), request.getParameter("price"), request.getParameter("description"));
 		response.getWriter().write(output);
 	}
 
@@ -56,7 +56,7 @@ public class FundApi extends HttpServlet {
 		Fund itObjUpdate = new Fund();
 		Map paras = getParasMap(request);
 		
-		String output = itObjUpdate.updateItem(paras.get("hidIDItemIDSave").toString(), paras.get("code").toString(), paras.get("name").toString(), paras.get("price").toString(), paras.get("description").toString());
+		String output = itObjUpdate.updateItem(paras.get("hidIDItemIDSave").toString(), paras.get("code").toString(), paras.get("name").toString(), paras.get("amount").toString(), paras.get("description").toString());
 		response.getWriter().write(output);
 	}
 
