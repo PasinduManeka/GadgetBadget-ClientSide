@@ -156,7 +156,7 @@ public class Fund {
 		return output;
 	}
 	
-	public String deleteItem(String id) {
+	public String deleteFund(String id) {
 		String output="";
 		try {
 			//Check database connection
