@@ -21,7 +21,7 @@ function validationFundForm(){
 	}
 	
 	//price
-	if($("#price").val().trim()==""){
+	if($("#amount").val().trim()==""){
 		return "Insert a numeric value for item price";
 	}
 	
@@ -52,7 +52,7 @@ $(document).on("click", "#bntSave", function(event){
 	//if valid
 	var type=($("#hidIDItemIDSave").val()=="") ? "post" : "put";
 	$.ajax({
-		url : "ItemApi",
+		url : "FundApi",
 		type : type,
 		data : $("#formItem").serialize(),
 		dataType : "text",
@@ -107,7 +107,7 @@ $(document).on("click",".btnUpdate", function(event){
 //Delete
 $(document).on("click", ".btnRemove", function(event){
 	$.ajax({
-		url : "ItemApi",
+		url : "FundApi",
 		type : "DELETE",
 		data : "id="+$(this).data("itemid"),
 		dataType : "text",
