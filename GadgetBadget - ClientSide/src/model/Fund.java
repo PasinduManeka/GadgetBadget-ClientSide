@@ -145,6 +145,8 @@ public class Fund {
 		return output;
 	}
 	
+	//public String updateString(String id, String name, String )
+	
 	public String deleteFunds(String id) {
 		String output="";
 		try {
