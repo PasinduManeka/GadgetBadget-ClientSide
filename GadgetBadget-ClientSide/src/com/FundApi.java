@@ -56,7 +56,7 @@ public class FundApi extends HttpServlet {
 		Fund itObjUpdate = new Fund();
 		Map paras = getParasMap(request);
 		
-		String output = itObjUpdate.updateItem(paras.get("hidIDItemIDSave").toString(), paras.get("code").toString(), paras.get("name").toString(), paras.get("amount").toString(), paras.get("description").toString());
+		String output = itObjUpdate.updateFund(paras.get("hidIDItemIDSave").toString(), paras.get("code").toString(), paras.get("name").toString(), paras.get("amount").toString(), paras.get("description").toString());
 		response.getWriter().write(output);
 	}
 
