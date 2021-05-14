@@ -167,7 +167,7 @@ public class Fund {
 			System.out.println(id);
 			
 			//create prepared statement
-			String query = "delete from product where id=?";
+			String query = "delete from funds where id=?";
 			PreparedStatement pd = con.prepareStatement(query);
 			
 			//binding values
