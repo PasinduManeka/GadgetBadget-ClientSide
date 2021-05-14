@@ -52,6 +52,11 @@ public class FundAPI extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Map paras = getParaMap(request);
+		Fund fundObj = new Fund();
+		
+		String output = fundObj.updateFunds(paras.get("hidFundIDSave").toString(), paras.get("cartid").toString(), paras.get("rName").toString(), paras.get("iAmount").toString(), paras.get("description").toString());
+		response.getWriter().write(output);
 	}
 
 	/**
@@ -59,6 +64,11 @@ public class FundAPI extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Map paras = getParaMap(request);
+		Fund fundObj = new Fund();
+		
+		String output = fundObj.deleteFunds(paras.get("id").toString());
+		
 	}
 	
 	private static Map getParaMap(HttpServletRequest request) {
@@ -78,5 +88,6 @@ public class FundAPI extends HttpServlet {
 		}
 		return map;
 	}
+	
 
 }
