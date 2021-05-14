@@ -55,7 +55,7 @@ $(document).on("click", "#btnSave", function(){
 		data : $("#formFund").serialize(),
 		dataType : "text",
 		complete : function(response, status){
-			onFundSaveComplete(response.responseText, status)
+			onFundSaveComplete(response.responseText, status);
 		}
 	});
 });
@@ -92,4 +92,40 @@ $(document).on("click", ".btnUpdate", function(event){
 	$("#iAmount").val($(this).closest("tr").find('td:eq(3)').text());
 	$("#description").val($(this).closest("tr").find('td:eq(4)').text());
 });
+
+$(document).on("click", ".btnDelete", function(event){
+	$.ajax({
+		url : "FundAPI",
+		type : "DELETE",
+		data : "itemID="+$(this).data("fundid"),
+		data : function(response, status){
+			onFundDeleteComplete(response.responseText, status);
+		}
+	});
+});
+
+function onFundDeleteComplete(response, status){
+	if(status == "success"){
+		var resultSet = JSON.parse(response);
+		
+		if(resultSet.status.trim() == "success"){
+			$("#alertSuccess").text("Successfully saved.");
+			$("#alertSuccess").show();
+			
+			$("#colFund").html(resultSet.data);
+		}else if(resultSet.status.trim() == "error"){
+			$("#alertError").text(resultSet.data);
+			$("#alertError").show();
+		}
+	}else if(status == "error" ){
+		$("#alertError").text("Error while saving.");
+		$("#alertError").show();
+	}else{
+		$("#alertError").text("Unknown Error while saving.");
+		$("#alertError").show();
+	}
+	$("#hidFundIDSave").val("");
+	$("#formFund")[0].reset();
+	
+} 
 
