@@ -7,7 +7,7 @@ $(document).ready(function(){
 	} 
 	$("#alertDanger").hide(); }
 );
-ss
+
 //Form validation
 function validationFundForm(){
 	//code
@@ -54,7 +54,7 @@ $(document).on("click", "#bntSave", function(event){
 	$.ajax({
 		url : "FundApi",
 		type : type,
-		data : $("#formItem").serialize(),
+		data : $("#formFund").serialize(),
 		dataType : "text",
 		complete : function(response, status){
 			onItemSaveComplete(response.responseText, status);
@@ -90,16 +90,16 @@ function onItemSaveComplete(response, status){
 		$("#alertDanger").text("Unknown error while saving.");
 		$("#alertDanger").show();
 	}
-	$("#hidIDItemIDSave").val("");
-	$("#formItem")[0].reset();
+	$("#hidIDFundIDSave").val("");
+	$("#formFund")[0].reset();
 }
 
 //update
 $(document).on("click",".btnUpdate", function(event){
-	$("#hidIDItemIDSave").val($(this).data("itemid"));
+	$("#hidIDFundIDSave").val($(this).data("itemid"));
 	$("#code").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#name").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#price").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#amount").val($(this).closest("tr").find('td:eq(3)').text());
 	$("#description").val($(this).closest("tr").find('td:eq(4)').text());
 	
 });
