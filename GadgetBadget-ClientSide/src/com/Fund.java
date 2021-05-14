@@ -21,7 +21,7 @@ public class Fund {
 		return con;
 	}
 	
-	public String readItems() {
+	public String readFunds() {
 		String output = "";
 		
 		try {
@@ -79,7 +79,7 @@ public class Fund {
 		return output;
 	}
 	
-	public String inserItem(String code, String name, String amount, String description) {
+	public String inserFund(String code, String name, String amount, String description) {
 		String output="";
 		
 		try {
@@ -105,7 +105,7 @@ public class Fund {
 			con.commit();
 			con.close();
 			//output="Inserted successfully";
-			String newItems = readItems();
+			String newItems = readFunds();
 			output ="{\"status\":\"success\", \"data\":\""+newItems+"\"}";
 			
 			
@@ -145,7 +145,7 @@ public class Fund {
 			con.commit();
 			//output="Updated successfuly";
 			
-			String newItems = readItems();
+			String newItems = readFunds();
 			output ="{\"status\":\"success\", \"data\":\""+newItems+"\"}";
 			
 		}catch(Exception e) {
@@ -179,7 +179,7 @@ public class Fund {
 			con.commit();
 			//output="Deleted Successfilly.";
 			
-			String newItems = readItems();
+			String newItems = readFunds();
 			output ="{\"status\":\"success\", \"data\":\""+newItems+"\"}";
 			
 		}catch(Exception e) {
